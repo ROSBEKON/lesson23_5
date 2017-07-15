@@ -56,5 +56,3 @@ questions.each do |question|
 end
 
 result_print.result_print(user_total, answers)
-
-
