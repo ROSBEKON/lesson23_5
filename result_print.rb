@@ -1,5 +1,5 @@
 class ResultPrint
-  def print_total(user_total, answers)
+  def result_print(user_total, answers)
     puts
     puts "Ваш результат теста:"
     puts
