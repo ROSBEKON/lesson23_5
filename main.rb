@@ -7,8 +7,10 @@ if (Gem.win_platform?)
   end
 end
 
-require_relative 'result_print'
+require_relative 'lib/result_print'
+require_relative 'lib/test'
 result_print = ResultPrint.new
+test = Test.new
 
 puts "Тест содержит возможность определить уровень коммуникабельности человека.\n" \
      "Отвечать на вопросы следует используя три варианта ответа \n" \
@@ -35,24 +37,4 @@ else
   abort "файл question.txt по такому пути #{file_question} не найден ..."
 end
 
-user_total = 0
-questions.each do |question|
-
-  input_user = nil
-
-  puts question
-
-  until input_user == 1 || input_user == 2 || input_user == 3
-    puts "используйте три варианта ответов - да = 1, иногда = 2 и нет = 3"
-    input_user = STDIN.gets.to_i
-  end
-
-  if input_user == 1
-    user_total += 2
-  elsif input_user == 2
-    user_total += 1
-  end
-
-end
-
-result_print.result_print(user_total, answers)
+result_print.result_print(test.test_questions(questions), answers)
